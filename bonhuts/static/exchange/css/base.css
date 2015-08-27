@@ -1,0 +1,67 @@
+.font_0 {
+	font: normal normal normal 45px/1.4em raleway, sans-serif;
+	color: #FFFFFF;
+}
+
+.font_4 {
+	font: italic normal normal 40px/1.4em 'times new roman', times, serif;
+	color: #FFFFFF;
+}
+
+h1 {
+	/* margin: 0; */
+	line-height: normal;
+	letter-spacing: normal;
+}
+
+.s14label {
+	font: italic normal normal 16px/1.4em 'times new roman', times, serif;
+	transition: color 0.4s ease 0s;
+	color: #FFFFFF;
+	display: inline-block;
+	margin: -webkit-calc(-1 * 2px) 2px 0;
+	margin: calc(-1 * 2px) 2px 0;
+	position: relative;
+	white-space: nowrap;
+}
+
+.s14link {
+	border-radius: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/* background-color: transparent; */
+	transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+	border: solid rgba(255, 255, 255, 1) 2px;
+	/* cursor: pointer !important; */
+}
+
+.s14:active[data-state~="mobile"] .s14link, .s14:hover[data-state~="desktop"] .s14link
+	{
+	background-color: rgba(255, 255, 255, 1);
+	border-color: rgba(255, 255, 255, 1);
+	transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+}
+
+.s14:active[data-state~="mobile"] .s14label, .s14:hover[data-state~="desktop"] .s14label
+	{
+	color: #CCCCCC;
+	transition: color 0.4s ease 0s;
+}
+
+.footer {
+	z-index: 1020;
+	padding: 10px 0;
+	margin: 0 0px 0 0px;
+	background:rgb(255, 255, 255);
+	border-top: 1px solid #CAD0D6;
+	line-height: 20px;
+}
+#copy{
+	position:absolute;
+	right:1em;
+	bottom:0.2em;
+	margin-right:2em;
+}
