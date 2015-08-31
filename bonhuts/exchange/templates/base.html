@@ -87,23 +87,23 @@
 		
 		
 		
-	<script src="{{STATIC_URL}}assets/js/jquery-2.1.4.min.js" ></script>	
+	<script src="{{STATIC_URL}}assets/js/jquery-1.9.1.min.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/jquery-ui.min.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/bootstrap.min.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/jquery.cookie.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/jquery-migrate-1.1.0.min.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/jquery.slimscroll.min.js" ></script>	
-	<script src="{{STATIC_URL}}assets/js/apps.min.js" ></script>	
 	<script src="{{STATIC_URL}}exchange/js/default.js" ></script>
+	<script src="{{STATIC_URL}}exchange/js/bootbox.min.js" ></script>
 	
 	{% block script %}
-	{% endblock %}
-	
 	<script>
 		$(document).ready(function(){
 			App.init();
 		})
 	</script>
+	{% endblock %}
+	
 	
 	
 </body>
