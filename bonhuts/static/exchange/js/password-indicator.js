@@ -10,6 +10,9 @@ $.fn.passwordStrength = function( options ){
 
 		 v = $(this)
 		.keyup(function(){
+			
+			d3.select("#passwordStrengthDiv").transition().duration(500).style("opacity", 1)
+			
 			if( typeof el == "undefined" )
 				this.el = $(this);
 			var s = getPasswordStrength (this.value);

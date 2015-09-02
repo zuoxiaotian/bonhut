@@ -4,7 +4,10 @@ from django.conf                import settings
 from django.conf.urls.static    import static
 
 urlpatterns = patterns( ''                                                                      ,
-                        url(r'^$'       , views.default         , name = 'default'          )   ,  # @UndefinedVariable
+                        url(r'^$'               , views.default             , name = 'default'      )   ,
+                        url(r'^register$'       , views.register            , name = 'register'     )   ,  
+                        url(r'^login$'          , views.login_view             , name = 'login'      )   ,  
+                        url(r'^logout$'         , views.logout_view            , name = 'logout'     )   ,  
                         
                         
                         

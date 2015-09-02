@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
 	<meta charset="utf-8">
 	<title> BonHut </title>
@@ -48,7 +48,7 @@
 								<li><a href="javascript:;">Calendar</a></li>
 								<li><a href="javascript:;">Setting</a></li>
 								<li class="divider"></li>
-								<li><a href="logout">Log Out</a></li>
+								<li><a href="javascript:logout();">Log Out</a></li>
 							</ul>
 						</li>
 						{% else %}
@@ -67,6 +67,7 @@
 		</div>
 		
 		<div class="content" data-scrollview="true">
+		
 			{% block content %}
 			{% endblock %}
 		</div>
@@ -87,6 +88,8 @@
 		
 		
 		
+
+	<script src="{{STATIC_URL}}assets/js/d3.min.js" ></script>
 	<script src="{{STATIC_URL}}assets/js/jquery-1.9.1.min.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/jquery-ui.min.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/bootstrap.min.js" ></script>	
@@ -94,7 +97,8 @@
 	<script src="{{STATIC_URL}}assets/js/jquery-migrate-1.1.0.min.js" ></script>	
 	<script src="{{STATIC_URL}}assets/js/jquery.slimscroll.min.js" ></script>	
 	<script src="{{STATIC_URL}}exchange/js/default.js" ></script>
-	<script src="{{STATIC_URL}}exchange/js/bootbox.min.js" ></script>
+	<script src="{{STATIC_URL}}assets/js/bootbox.min.js" ></script>
+	<script src="{{STATIC_URL}}assets/js/angular.min.js" ></script>
 	
 	{% block script %}
 	<script>

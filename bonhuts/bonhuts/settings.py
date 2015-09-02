@@ -3,6 +3,7 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+AUTH_PROFILE_MODULE = "exchange.UsersProfile"
 
 
 import os
@@ -43,7 +44,7 @@ else:
             'USER': 'root',
             'PASSWORD': 'zxt',
             'HOST': 'localhost',
-            'NAME': 'testbase',
+            'NAME': 'ttts',
         }
     }
 
@@ -182,3 +183,4 @@ LOGGING = {
         },
     }
 }
+
