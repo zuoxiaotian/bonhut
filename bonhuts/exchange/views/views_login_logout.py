@@ -48,3 +48,7 @@ def logout_view(request):
     logout(request)
     return HttpResponse('success')
     
+
+def index(request):
+    test = {"st": "test st"}
+    return render(request, "../templates/index.html", test) 

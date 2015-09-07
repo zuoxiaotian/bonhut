@@ -2,113 +2,157 @@
 <!DOCTYPE html>
 <html ng-app>
 <head>
-	<meta charset="utf-8">
-	<title> BonHut </title>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
-	<meta content="" name="description"/>
-	<meta content="" name="author"/>
-	
-	<link href="{{STATIC_URL}}assets/css/jquery-ui.min.css"								rel="stylesheet"/>
-	<link href="{{STATIC_URL}}assets/css/bootstrap.min.css"								rel="stylesheet"/>
-	<link href="{{STATIC_URL}}assets/font-awesome-4.3.0/css/font-awesome.min.css"		rel="stylesheet"/>
-	<link href="{{STATIC_URL}}assets/css/animate.min.css"								rel="stylesheet"/>
-	<link href="{{STATIC_URL}}assets/css/style.min.css"									rel="stylesheet"/>
-	<link href="{{STATIC_URL}}assets/css/style-responsive.min.css"						rel="stylesheet"/>
-	<link href="{{STATIC_URL}}assets/css/default.css"									rel="stylesheet"/>
-	<link href="{{STATIC_URL}}exchange/css/base.css"									rel="stylesheet"/>
-	
-	{% block head_links %}
-	{% endblock %}
+<meta charset="utf-8">
+<title>BonHut</title>
+<meta
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
 
+<link href="{{STATIC_URL}}assets/css/jquery-ui.min.css" rel="stylesheet" />
+<link href="{{STATIC_URL}}assets/css/bootstrap.min.css" rel="stylesheet" />
+<link
+	href="{{STATIC_URL}}assets/font-awesome-4.3.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="{{STATIC_URL}}assets/css/animate.min.css" rel="stylesheet" />
+<link href="{{STATIC_URL}}assets/css/style.min.css" rel="stylesheet" />
+<link href="{{STATIC_URL}}assets/css/style-responsive.min.css"
+	rel="stylesheet" />
+<link href="{{STATIC_URL}}assets/css/default.css" rel="stylesheet" />
+<link href="{{STATIC_URL}}exchange/css/base.css" rel="stylesheet" />
+
+	<link href="{{STATIC_URL}}exchange/css/password-indicator.css"					rel="stylesheet"/>
+	<link href="{{STATIC_URL}}assets/css/bwizard.min.css"								rel="stylesheet"/>
+	<link href="{{STATIC_URL}}assets/css/parsley.css"								rel="stylesheet"/>
 	
+	
+{% block head_links %} {% endblock %}
+
+
 </head>
 
+<style>
+</style>
 <body>
 	<div id="page-container">
-		<div id="header" class="header navbar navbar-default navbar-fixed-top navbar-small" data-state-change="disabled">
+		<div id="header"
+			class="header navbar navbar-default navbar-fixed-top navbar-small"
+			data-state-change="disabled">
 			<div class="container">
-				<div class="navbar-header">
-				</div>
+				<div class="navbar-header"></div>
 				<div class="collapse navbar-collapse" id="header-navbar">
 					<ul class="nav navbar-nav navbar-right">
-						{% block menu %}
-						{% endblock %}
-						{% if user.is_authenticated %}
-						
-						
-						<li class="dropdown navbar-user">
-							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-								<i class="fa fa-user"></i>
-								<span class="hidden-xs">{{user}}</span> <b class="caret"></b>
-							</a>
+						{% block menu %} {% endblock %} {% if user.is_authenticated %}
+
+
+						<li class="dropdown navbar-user"><a href="javascript:;"
+							class="dropdown-toggle" data-toggle="dropdown"> <i
+								class="fa fa-user"></i> <span class="hidden-xs">{{user}}</span>
+								<b class="caret"></b>
+						</a>
 							<ul class="dropdown-menu animated fadeInLeft">
 								<li class="arrow"></li>
 								<li><a href="javascript:;">Edit Profile</a></li>
-								<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
+								<li><a href="javascript:;"><span
+										class="badge badge-danger pull-right">2</span> Inbox</a></li>
 								<li><a href="javascript:;">Calendar</a></li>
 								<li><a href="javascript:;">Setting</a></li>
 								<li class="divider"></li>
 								<li><a href="javascript:logout();">Log Out</a></li>
-							</ul>
-						</li>
-						{% else %}
-						
-						
-						<li class="dropdown navbar-user">
-							<a href="javascript:login();">
-								<i class="fa fa-user"></i>
-								<span class="hidden-xs">Log in / register</span>
-							</a>
-						</li>
-						{% endif %}
+							</ul></li> {% else %} {%block signbutton%}
+
+
+						<li class="dropdown loginbt"><a href="#"
+							data-click="scroll-to-target" data-target="#"
+							data-toggle="dropdown"> <i class="fa fa-user"></i> <span
+								class="hidden-xs">Log in / register</span><b class="caret"></b>
+
+						</a>
+							<ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+								<div class="col-12">
+									<!-- begin panel -->
+									<div class="panel panel-inverse"
+										data-sortable-id="form-stuff-5">
+										<div class="panel-body" align="center">
+											<div class="form-inline">
+												<div class="form-group m-r-10">
+													<input class="form-control"
+														id="login_username" placeholder="Enter Username" />
+												</div>
+												<div class="form-group m-r-10">
+													<input type="password" class="form-control"
+														id="login_password" placeholder="Password" />
+												</div>
+												<button onclick="login_()" class="btn btn-sm btn-primary m-r-5">Sign
+													in</button>
+												<button onclick="register()"
+														class="btn btn-sm btn-default">Register</button> 
+											</div>
+										</div>
+									</div>
+									<!-- end panel -->
+								</div>
+							</ul></li> {% endblock%} {% endif %}
 					</ul>
 				</div>
 			</div>
 		</div>
-		
-		<div class="content" data-scrollview="true">
-		
-			{% block content %}
-			{% endblock %}
-		</div>
-		
+
+		<div class="content" data-scrollview="true">{% block content %}
+			{% endblock %}</div>
+
 		{% block footer %}
-		<div id="footer" class="footer" style="position:absolute;bottom:0;width:100%;left:0%;height:4%;padding:0;">
+		<div id="footer" class="footer"
+			style="position: absolute; bottom: 0; width: 100%; left: 0%; height: 4%; padding: 0;">
 			<div id="statusbar" class="container" align=center>
-				<div id="status" class="footer-brand" style="margin-bottom:0;width:60%" align=center>
-					StatusBar
-				</div>
-				<div id="copy">
-					BonHut@ 2015
-				</div>
+				<div id="status" class="footer-brand"
+					style="margin-bottom: 0; width: 60%" align=center>StatusBar</div>
+				<div id="copy">BonHut@ 2015</div>
 			</div>
 		</div>
 		{% endblock %}
 	</div>
-		
-		
-		
 
-	<script src="{{STATIC_URL}}assets/js/d3.min.js" ></script>
-	<script src="{{STATIC_URL}}assets/js/jquery-1.9.1.min.js" ></script>	
-	<script src="{{STATIC_URL}}assets/js/jquery-ui.min.js" ></script>	
-	<script src="{{STATIC_URL}}assets/js/bootstrap.min.js" ></script>	
-	<script src="{{STATIC_URL}}assets/js/jquery.cookie.js" ></script>	
-	<script src="{{STATIC_URL}}assets/js/jquery-migrate-1.1.0.min.js" ></script>	
-	<script src="{{STATIC_URL}}assets/js/jquery.slimscroll.min.js" ></script>	
-	<script src="{{STATIC_URL}}exchange/js/default.js" ></script>
-	<script src="{{STATIC_URL}}assets/js/bootbox.min.js" ></script>
-	<script src="{{STATIC_URL}}assets/js/angular.min.js" ></script>
+
+
+
+	<script src="{{STATIC_URL}}assets/js/d3.min.js"></script>
+	<script src="{{STATIC_URL}}assets/js/jquery-1.9.1.min.js"></script>
+	<script src="{{STATIC_URL}}assets/js/jquery-ui.min.js"></script>
+	<script src="{{STATIC_URL}}assets/js/bootstrap.min.js"></script>
+	<script src="{{STATIC_URL}}assets/js/jquery.cookie.js"></script>
+	<script src="{{STATIC_URL}}assets/js/jquery-migrate-1.1.0.min.js"></script>
+	<script src="{{STATIC_URL}}assets/js/jquery.slimscroll.min.js"></script>
+	<script src="{{STATIC_URL}}exchange/js/default.js"></script>
+	<script src="{{STATIC_URL}}assets/js/bootbox.min.js"></script>
+	<script src="{{STATIC_URL}}assets/js/angular.min.js"></script>
 	
+	
+	<script src="{{STATIC_URL}}assets/js/ion.rangeSlider.min.js" ></script>
+	<script src="{{STATIC_URL}}assets/js/bootstrap-colorpicker.min.js" ></script>
+	<script src="{{STATIC_URL}}assets/js/masked-input.min.js" ></script>
+	<script src="{{STATIC_URL}}assets/js/bootstrap-timepicker.min.js" ></script>
+	<script src="{{STATIC_URL}}assets/js/bootstrap-combobox.js" ></script>
+	
+	
+	<script src="{{STATIC_URL}}assets/js/parsley.js" ></script>		
+	<script src="{{STATIC_URL}}assets/js/bwizard.js" ></script>		
+	
+	<script src="{{STATIC_URL}}exchange/js/password-indicator.js" ></script>
+	<script src="{{STATIC_URL}}exchange/js/register_form.js" ></script>
+	<script src="{{STATIC_URL}}assets/js/apps.min.js" ></script>	
+
 	{% block script %}
 	<script>
-		$(document).ready(function(){
+		$(document).ready(function() {
 			App.init();
+			FormWizardValidation.init();
 		})
 	</script>
 	{% endblock %}
-	
-	
-	
+
+
+
 </body>
 </html>

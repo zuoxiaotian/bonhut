@@ -45,7 +45,7 @@ function login_(){
 		},
 		success:function(s){
 			if(s == "success"){
-				window.location.href=""
+				window.location.href="/exchange/index"
 			}else{
 				bootbox.alert(s)
 			}
@@ -212,7 +212,8 @@ function register(){
 		    	  			document.getElementById("password1").value 		== "" || 	
 		    	  			document.getElementById("reg_username").value 	== ""  )
 			    	  		{
-					    	  return;
+			    	  			$(this).preventDefault();
+			    	  			return;
 					    	}
 			    	  	if (false === $('form[name="form-wizard"]').parsley()
 								.validate("wizard-step-2")) {
