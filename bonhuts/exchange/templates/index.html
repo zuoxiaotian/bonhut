@@ -2,17 +2,15 @@
 
 
 {% block menu %}
-<li class="dropdown">
-	<a href="#" data-click="scroll-to-target" data-target="#" data-toggle="dropdown"> Test<b class="caret"></b></a>
-	<ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-		<li><a href="javascript:;"> save</a></li>
-	</ul>
-</li>
-<li class="dropdown">
-	<a href="#" data-click="scroll-to-target" data-target="#" data-toggle="dropdown"> Test<b class="caret"></b></a>
-	<ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-		<li><a href="javascript:;"> save</a></li>
-	</ul>
-</li>
+
 	
 {% endblock %}
+
+{% block content %}
+
+
+
+<div style="position: absolute; left: 0px; width:500px; height: 300px; bottom:0px; background: url('{{ STATIC_URL }}exchange/image/1.png'); background-size:cover ">
+
+</div>
+{% endblock%}

@@ -1,3 +1,7 @@
+body {
+	background: #ffffff; 
+}
+
 .font_0 {
 	font: normal normal normal 45px/1.4em raleway, sans-serif;
 	color: #FFFFFF;
@@ -83,5 +87,21 @@ h1 {
 
 .dropdown.loginbt>.dropdown-menu-left {
 	right: 0px;
-	left: -350px;
+	left: -380px;
+}
+
+#background{
+	width:100%;
+	height:100%;
+	background-image:-webkit-gradient(linear, right top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255 , 255, 0)), color-stop(0.75, #ffffff));
+	
+}
+.navbar-brand {
+	margin-right: 10px;
+	padding: 5px 13px;
+	height: auto;
+	width: 220px;
+	font-weight: 100;
+	font-size: 18px;
+	line-height: 30px;
 }
