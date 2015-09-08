@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+
+
+{% block head_links %}
+	<link href="{{STATIC_URL}}exchange/css/getskill.css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block menu %}
+
+	
+{% endblock %}
+
+
+{% block sidebar %}
+<div id="sidebar" class="sidebar">
+		<div data-height="100%" style=" padding-bottom: 30px;">
+			<ul class="nav">
+				<li class="nav-profile">
+					<img style='height:100%; width:100%'src='{{ STATIC_URL }}exchange/image/yinfu.png' ></img>
+				</li>
+			</ul>
+			<ul class="nav">
+				<li class="nav-header">Filter</li>
+				<li class="has-sub expand" >
+						<a href="javascript:;">
+						    <b class="caret pull-right"></b>
+						    <i class="fa fa-music"></i>
+						    <span>Instrument</span>
+					    </a>
+						<ul class="sub-menu" style='display:block'>
+						    <li class="has-sub">
+						    	<a href="javascript:;">
+								    <b class="caret pull-right"></b>
+								    <span>Brass</span>
+							    </a>
+						    		<ul class="sub-menu" style='display:block'>
+									    <li class="has-sub"><a href="">Trumpet</a></li>
+									    <li class="has-sub"><a href="">Horn</a></li>
+									    <li class="has-sub"><a href="">Tenor trombone</a></li>
+									</ul>
+						    
+						    
+						    </li>
+						    <li class="has-sub"><a href="">String</a></li>
+						    <li class="has-sub"><a href="">Woodwind</a></li>
+						    <li class="has-sub"><a href="">Percussion</a></li>
+						    <li class="has-sub"><a href="">Chinese</a></li>
+						    <li class="has-sub"><a href="">String</a></li>
+						    <li class="has-sub"><a href="">Woodwind</a></li>
+						    <li class="has-sub"><a href="">Percussion</a></li>
+						    <li class="has-sub"><a href="">Chinese</a></li>
+						    <li class="has-sub"><a href="">String</a></li>
+						    <li class="has-sub"><a href="">Woodwind</a></li>
+						    <li class="has-sub"><a href="">Percussion</a></li>
+						    <li class="has-sub"><a href="">Chinese</a></li>
+						    <li class="has-sub"><a href="">String</a></li>
+						    <li class="has-sub"><a href="">Woodwind</a></li>
+						    <li class="has-sub"><a href="">Percussion</a></li>
+						    <li class="has-sub"><a href="">Chinese</a></li>
+						    <li class="has-sub"><a href="">String</a></li>
+						    <li class="has-sub"><a href="">Woodwind</a></li>
+						    <li class="has-sub"><a href="">Percussion</a></li>
+						    <li class="has-sub"><a href="">Chinese</a></li>
+						</ul>
+				</li>
+			</ul>
+		
+		</div>
+	
+	</div>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div style="position: fixed; left: 0px; width:500px; height: 300px; bottom:0px; background: url('{{ STATIC_URL }}exchange/image/1.png'); background-size:cover ">
+
+</div>
+{% endblock%}

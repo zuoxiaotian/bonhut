@@ -19,6 +19,7 @@ handlers.BaseHandler.log_exception = lambda *args, **kwargs: None
 import_dir = os.path.dirname(os.path.realpath(__file__)) + "/"
 file_to_import = [
                   "views_login_logout.py",
+                  "views_get_share_skill.py",
                   ]
 
 for file_ in file_to_import:

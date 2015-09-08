@@ -49,7 +49,7 @@
 				</div>
 				
 							
-				<div class="navbar-header" style="position: absolute;left: 28%;">
+				<div class="navbar-header" style="position: absolute;left: 22%;">
 				
 							<form class="navbar-form full-width">
 								<div class="form-group">
@@ -147,12 +147,15 @@
 			</div>
 		</div>
 
+		{% block sidebar %}
+		{% endblock %}
+	
 		<div class="content" data-scrollview="true">{% block content %}
 			{% endblock %}</div>
 
 		{% block footer %}
-		<div id="footer" class="footer"
-			style="position: absolute; bottom: 0; width: 100%; left: 0%; height: 4%; padding: 0;">
+		<div id="footer" class="footer navbar navbar-default navbar-fixed-bottom"
+			style="height: 4%;">
 			<div id="statusbar" class="container" align=center>
 				<div id="status" class="footer-brand"
 					style="margin-bottom: 0; width: 60%" align=center>StatusBar</div>
