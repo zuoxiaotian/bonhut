@@ -15,14 +15,17 @@
 
 {% block sidebar %}
 <div id="sidebar" class="sidebar">
-		<div data-height="100%" style=" padding-bottom: 30px;">
+				<div class="nav-profile"  style="position: fixed;top:40px">
+					<img style='height:43px; width:100%; position:relative; top:10px;'src='{{ STATIC_URL }}exchange/image/yinfu.png' ></img>
+				</div>
+				<div class="nav-header"  style="position: fixed; top: 100px;width:250px;background-color: rgba(245, 187, 34, 0.2);" align=center>
+						<hr>Filter<hr></div>
+
+		<div data-scrollbar='true' data-height="100%" style=" padding-bottom: 30px;">
 			<ul class="nav">
-				<li class="nav-profile">
-					<img style='height:100%; width:100%'src='{{ STATIC_URL }}exchange/image/yinfu.png' ></img>
-				</li>
 			</ul>
 			<ul class="nav">
-				<li class="nav-header">Filter</li>
+			
 				<li class="has-sub expand" >
 						<a href="javascript:;">
 						    <b class="caret pull-right"></b>

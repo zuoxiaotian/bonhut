@@ -1,7 +1,8 @@
 .sidebar {
 	width: 250px;
-	padding-top: 40px;
-	background: rgba(39, 45, 53, 0.05)
+	height:auto;
+	padding-top: 150px;
+	background: rgba(39, 45, 53, 0.05);
 }
 
 
@@ -40,4 +41,13 @@ a {
 
 .sidebar .sub-menu>li>a:before {
 	content: '\f13';
+	font-size: 12px;
 }
+
+hr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 0;
+	border-top: 1px solid rgba(255, 255, 255, 1);
+}
+

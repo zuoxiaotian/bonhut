@@ -1,7 +1,7 @@
 def get_skill(request):
     '''
     input: parameters to search in the database
-            [instrument name, level, price, date, place]
+            [instrument name, level, price, date, place, search item]
     output: list of results    
             []
     '''
