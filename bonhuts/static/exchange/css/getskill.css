@@ -43,11 +43,34 @@ a {
 	content: '\f13';
 	font-size: 12px;
 }
-
-hr {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	border: 0;
-	border-top: 1px solid rgba(255, 255, 255, 1);
+.sidebar .sub-menu>li>a {
+	color: #000000;
 }
 
+
+.stroke {
+  fill: none;
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+.fill {
+  fill: #5cd0f9;
+}
+
+.land {
+  fill: #fff;
+}
+
+.land :hover {
+  fill: #6c6c6c;
+}
+
+.boundary {
+  fill: none;
+  stroke: #969b90;
+}
+hr {
+	margin-top: 5px; 
+	margin-bottom: 5px; 
+}

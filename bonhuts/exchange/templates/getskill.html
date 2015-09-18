@@ -3,6 +3,9 @@
 
 
 {% block head_links %}
+	<link href="{{STATIC_URL}}assets/css/ion.rangeSlider.css"rel="stylesheet"/>
+	<link href="{{STATIC_URL}}assets/css/ion.rangeSlider.skinNice.css"rel="stylesheet"/>
+	<link href="{{STATIC_URL}}assets/css/bootstrap-select.min.css"rel="stylesheet"/>
 	<link href="{{STATIC_URL}}exchange/css/getskill.css" rel="stylesheet" />
 {% endblock %}
 
@@ -14,9 +17,9 @@
 
 
 {% block sidebar %}
-<div id="sidebar" class="sidebar">
+<div id="sidebar" class="sidebar" style='z-index:-1'>
 				<div class="nav-profile"  style="position: fixed;top:40px">
-					<img style='height:43px; width:100%; position:relative; top:10px;'src='{{ STATIC_URL }}exchange/image/yinfu.png' ></img>
+					<img style='height:43px; width:100%; opacity:0.4;position:relative; top:10px;'src='{{ STATIC_URL }}exchange/image/yinfu.png' ></img>
 				</div>
 				<div class="nav-header"  style="position: fixed; top: 100px;width:250px;background-color: rgba(245, 187, 34, 0.2);" align=center>
 						<hr>Filter<hr></div>
@@ -73,6 +76,8 @@
 		</div>
 	
 	</div>
+	
+	
 
 {% endblock %}
 
@@ -81,7 +86,169 @@
 
 {% block content %}
 
-<div style="position: fixed; left: 0px; width:500px; height: 300px; bottom:0px; background: url('{{ STATIC_URL }}exchange/image/1.png'); background-size:cover ">
-
+<div id="selects" style='position:absolute; top:60px;left: 300px;'>
+<!-- 
+    <div class="form-group" id = 'sd' style='width:500px;'>
+        <div class="col-md-4">
+			<a href="/html/tryit.asp?filename=tryhtml_default" target="_blank" class="w3-btn w3-theme">Choose your location</a><br><br>
+		</div>
+		
+		
+		
+    </div>
+    <div class="form-group" id = 'sd' style='width:500px;'>
+         <div class="col-md-3">
+    		<a href="/html/tryit.asp?filename=tryhtml_default" target="_blank" class="w3-btn w3-theme">Choose Price</a>
+    		</div>
+        <div class="col-md-8">
+           <input type="text" id="customRange_rangeSlider" name="default_rangeSlider" value="" />
+         </div>
+   	</div>
+    
+    
+	<a href="javascript:getCountry();" id="add-regular" class="btn btn-primary btn-xs">Choose country</a><br><br>
+	<a href="javascript:getPrice();" id="add-regular" class="btn btn-primary btn-xs">Choose price</a> -->
 </div>
+
+<div style="position: fixed; z-index:-2; left: 0px; width:500px; height: 300px; bottom:0px; background: url('{{ STATIC_URL }}exchange/image/1.png'); background-size:cover ">
+</div>
+<div id ="plan" style='width:100%; z-index:5'>
+	<div id='map' style='position:absolute; width:80%'>
+	</div>
+	
+	
+</div>
+<div id ="price" >
+
+	
+</div>
+
+
+
 {% endblock%}
+
+
+
+	{% block script %}
+	<script src="{{STATIC_URL}}assets/js/ion.rangeSlider.min.js" ></script>	
+	<script src="{{STATIC_URL}}exchange/js/form-plugins.demo.min.js" ></script>	
+	<script src="{{STATIC_URL}}assets/js/d3.geo.projection.min.js" ></script>	
+	<script src="{{STATIC_URL}}assets/js/bootstrap-select.min.js" ></script>	
+	<script src="{{STATIC_URL}}assets/js/queue.min.js" ></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+	
+	
+	<script>
+	
+	function getPrice(){
+	    $( "#price" ).dialog({
+    	  	width: 500,
+    	  	height: 500,
+	    });
+	}
+	
+		function getCountry(){
+		    $( "#plan" ).appendTo('body').dialog({
+	    	  	width: '100%',
+	    	  	height: 550,
+	            modal: true,
+	            zIndex: 10000,
+		    				
+		    
+		    });
+		    
+		    var parseDate = d3.time.format("%Y-%m-%d").parse,
+			    formatDate = d3.time.format("%x");
+	
+			var width = 960,
+			    height = 500;
+	
+			var projection = d3.geo.naturalEarth()
+			    .scale(167)
+			    .translate([width / 2, height / 2])
+			    .precision(.1);
+	
+			var color = d3.scale.linear()
+			    .domain([new Date(1900, 0, 1), new Date(2000, 0, 1)])
+			    .range(["purple", "orange"])
+			    .clamp(true)
+			    .interpolate(d3.interpolateHcl);
+	
+			var path = d3.geo.path()
+			    .projection(projection);
+	
+			var svg = d3.select("#map").append("svg")
+			    .attr("width", width)
+			    .attr("height", height);
+	
+			svg.append("defs").append("path")
+			    .datum({type: "Sphere"})
+			    .attr("id", "sphere")
+			    .attr("d", path);
+	
+			svg.append("use")
+			    .attr("class", "stroke")
+			    .attr("xlink:href", "#sphere");
+	
+			svg.append("use")
+			    .attr("class", "fill")
+			    .attr("xlink:href", "#sphere");
+	
+			queue()
+			    .defer(d3.json, "{{STATIC_URL}}exchange/json/world-50m.json")
+			    .defer(d3.tsv,  "{{STATIC_URL}}exchange/json/world-country-names.tsv", type)
+			    .await(ready);
+	
+			function ready(error, world, treaties) {
+				if (error) throw error;
+	
+			  var treatiesById = d3.nest()
+			      .key(function(d) { return d.id; })
+			      .sortValues(function(a, b) { return a.date - b.date; })
+			      .map(treaties, d3.map);
+	
+			  var country = svg.insert("g", ".graticule")
+			      .attr("class", "land")
+			    .selectAll("path")
+			      .data(topojson.feature(world, world.objects.countries).features)
+			    .enter().append("path")
+			      .attr("d", path);
+	
+	
+			  country
+			    .append("title")
+			      .text(function(d) {
+			        var treaties = treatiesById.get(d.id);
+			        
+			        if(treaties != undefined)
+			        return treaties[0].name;
+			      });
+	
+			  svg.insert("path", ".graticule")
+			      .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+			      .attr("class", "boundary")
+			      .attr("d", path);
+			}
+	
+			function type(d) {
+			  d.id = +d.id;
+			  return d;
+			}
+	
+			d3.select(self.frameElement).style("height", height + "px");
+
+		}
+		
+		
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			FormPlugins.init();
+			Gallery.init();
+			
+		})
+	</script>
+	</script>
+	
+	{% endblock %}

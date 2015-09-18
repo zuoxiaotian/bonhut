@@ -87,7 +87,7 @@ h1 {
 
 .dropdown.loginbt>.dropdown-menu-left {
 	right: 0px;
-	left: -380px;
+	left: -450px;
 }
 
 #background{
@@ -119,3 +119,51 @@ h1 {
 	right: 70px;
 	top: 6px;
 }
+
+.w3-theme {
+	color: #fff !important;
+	background-color: rgba(74, 161, 24, 0.57) !important;
+}
+
+.w3-btn {
+	border: none;
+	display: inline-block;
+	outline: 0;
+	padding: 6px 16px;
+	vertical-align: middle;
+	text-decoration: none !important;
+	color: #fff;
+	background-color: #000;
+	text-align: center;
+	transition: .2s ease-out;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.w3-btn:hover, .w3-btn-floating:hover, .w3-btn-floating-large:hover {
+	background-color: #7AB000 !important;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.w3-btn.active {
+	background-color: #FFA500!important;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.effectscale {
+	width:60%;
+	transform: all scale(1);
+	transition: all 0.5s;
+	
+
+}
+
+.effectscale:hover{
+	-webkit-transform:scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+	transition:all 0.5s;
+	box-shadow:10px 10px 5px black;
+}
+

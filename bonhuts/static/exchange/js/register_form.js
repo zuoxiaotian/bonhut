@@ -17,7 +17,7 @@ var handleBootstrapWizardsValidation = function() {
 								$("div.modal-footer :button.btn-success").removeClass("disabled")
 							}else $("div.modal-footer :button.btn-success").addClass("disabled")
 						}
-					} else if (t.index == 1) {
+					} else if (t.index == 1){
 						if (false === $('form[name="form-wizard"]').parsley()
 								.validate("wizard-step-2")) {
 							return false;
