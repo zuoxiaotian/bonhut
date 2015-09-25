@@ -1,5 +1,5 @@
 .sidebar {
-	width: 250px;
+	width: 18%;
 	height:auto;
 	padding-top: 150px;
 	background: rgba(39, 45, 53, 0.05);
@@ -43,6 +43,7 @@ a {
 	content: '\f13';
 	font-size: 12px;
 }
+
 .sidebar .sub-menu>li>a {
 	color: #000000;
 }
@@ -74,3 +75,32 @@ hr {
 	margin-top: 5px; 
 	margin-bottom: 5px; 
 }
+
+.sidebar .nav>li>a {
+	color: #818488;
+}
+
+
+
+.w4-btn {
+	border: none;
+	display: inline-block;
+	outline: 0;
+	padding: 6px 16px;
+	text-decoration: none !important;
+	color: #fff;
+	transition: .2s ease-out;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.w4-btn:hover, .w4-btn-floating:hover, .w4-btn-floating-large:hover {
+	background-color: rgba(244, 233, 202, 0.37) !important;
+	box-shadow: 0px 0px 10px 5px rgba(244, 233, 202, 1);
+}
+
+
+.w4-btn.active {
+	background-color: #FFA500!important;
+}
+
+

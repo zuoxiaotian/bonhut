@@ -125,18 +125,25 @@
 				
 						{% block menu %} {% endblock %} 
 						<li class="dropdown">
-							<a href="javascript:init_();" onclick="javascript:init_();" data-click="scroll-to-target" data-target="#" data-toggle="dropdown"> Get skills<b class="caret"></b></a>
+							<a href="javascript:init_();" onclick="javascript:init_();" data-click="scroll-to-target" data-target="#" data-toggle="dropdown"> Share my skills<b class="caret"></b></a>
 							<ul class="dropdown-menu dropdown-menu-left animated fadeInDown" style='padding: 20px; position: absolute; height: 500px; width: 800px;left:-50px; background-color: rgba(231, 231, 231, 1)'>
 							
+							<svg style='z-index:-1; position: absolute;height: 80px; width: 400px;left: -20px;top: 10px;'>
+								<polygon style='positon:absolute;' points='0 10, 200 10, 215 25, 200 40, 20 40, 20 45, 0 40 ' fill='rgba(102, 30, 105, 0.7)'>
+								</polygon>
+							</svg>
 							
+							<div id="textstatic" style = "z-index: -1; color: rgb(235, 235, 235); font-size: 1.4em; font-family: cursive;position: absolute; height: 80px; width: 400px; left: 5px; top: 22px; opacity: 1;">
+								Select instrument
 							
+							</div>
 							
-							
-							
-							
-							<div id="options" class="m-b-10">
+							<div id="options" class="m-b-10" align='right' style='margin-bottom: 0px !important'>
 					                <span class="gallery-option-set" id="filter" data-option-key="filter">
-					                    <a id='init' href="#gallery-group-1" class="w3-btn w3-theme" data-option-value=".gallery-group-1">
+					                    <a  id='init' href="#show-all" class="w3-btn w3-theme" data-option-value="*">
+					                        Show All
+					                    </a>
+					                     <a href="#gallery-group-1" class="w3-btn w3-theme" data-option-value=".gallery-group-1">
 					                        Keyboard
 					                    </a>
 					                    <a href="#gallery-group-2" class="w3-btn w3-theme" data-option-value=".gallery-group-2">
@@ -152,10 +159,10 @@
 					                        Percussion
 					                    </a>
 					                </span>
-					            </div>
+					            </div><br>
+								<hr>
 												
-												
-								<div id="gallery" class="gallery" style='position:absolute;height:720px; width:700px; left:0px'>
+								<div id="gallery" class="gallery" style='position:absolute;height:720px; width:760px; left:0px; margin: 0;'>
 					                <div class="image gallery-group-1">
 					                    <div class="image-inner" style=" background: none; ">
 					                        <a href="assets/img/gallery/gallery-1.jpg" data-lightbox="gallery-group-1">
@@ -251,12 +258,6 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="#" data-click="scroll-to-target" data-target="#" data-toggle="dropdown"> Share skills<b class="caret"></b></a>
-							<ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-								<li><a href="javascript:;"> save</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
 							<a href="#" data-click="scroll-to-target" data-target="#" data-toggle="dropdown"> About us<b class="caret"></b></a>
 							<ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
 								<li><a href="javascript:;"> save</a></li>
@@ -331,8 +332,16 @@
 			FormWizardValidation.init();
 		})
 		
+		var init = true
+		
 		function init_(){
-			setTimeout(function(){$("#init").trigger('click')}, 500)
+			if (!init) return;
+				d3.select('#textstatic').style('left', '-10px').style('opacity', '0')
+				setTimeout(function(){
+					d3.select('#textstatic').transition().duration(700).style('left', '13px').style('opacity', '1')
+					$('#init').trigger('click')
+				}, 200)
+			init = false;
 		}
 		
 	</script>
